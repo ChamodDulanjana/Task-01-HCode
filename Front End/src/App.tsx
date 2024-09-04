@@ -7,25 +7,26 @@ function App() {
     const formData = new FormData();
     formData.append("file", selectedFile);
 
-    const handleClick = async () => {
+    const handleClick = () => {
         if (!selectedFile) {
             alert("Please select a file");
         }
 
-        try {
-            const response = await axios.post(
-                "http://localhost:8080/api/v1/files",
-                JSON.stringify(formData),
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    }
-                }
-            );
-            console.log(response.data);
-        } catch (error) {
-            console.log("There was an error", error);
-        }
+        axios.post("http://localhost:8080/api/v1/files",
+            formData,
+            {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+
+        })
+            .then((response) => {
+                console.log('File uploaded successfully', response.data);
+            })
+            .catch((error) => {
+                console.error('Error uploading file', error);
+            });
+
 
     }
 
