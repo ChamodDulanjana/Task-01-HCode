@@ -12,7 +12,7 @@ function App() {
             alert("Please select a file");
         }
 
-        axios.post("http://localhost:8080/api/v1/files",
+        axios.post("http://localhost:8080/api/v1/fileStorage",
             formData,
             {
             headers: {
