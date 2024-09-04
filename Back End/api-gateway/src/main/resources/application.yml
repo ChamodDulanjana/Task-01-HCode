@@ -1,6 +1,14 @@
 spring:
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: file-storage-service
+            uri: lb://file-storage-service
+            predicates:
+              - Path=/api/v1/fileStorage/**
 
 server:
   port: 8080
