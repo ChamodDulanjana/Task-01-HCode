@@ -10,6 +10,11 @@ spring:
             predicates:
               - Path=/api/v1/fileStorage/**
 
+          - id: file-upload-service
+            uri: lb://file-upload-service
+            predicates:
+              - Path=/api/v1/fileUpload/**
+
 server:
   port: 8080
 
