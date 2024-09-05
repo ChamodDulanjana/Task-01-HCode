@@ -10,9 +10,10 @@ function App() {
     const handleClick = () => {
         if (!selectedFile) {
             alert("Please select a file");
+            return;
         }
 
-        axios.post("http://localhost:8080/api/v1/fileStorage",
+        axios.post("http://localhost:8080/api/v1/fileUpload",
             formData,
             {
             headers: {
