@@ -11,9 +11,11 @@
         <module name="config-server" />
         <module name="file-upload-service" />
         <module name="backend" />
-        <module name="file-storage-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="file-storage-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

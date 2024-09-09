@@ -2,11 +2,11 @@ package com.chamoddulanjana.fileuploadservice.controller;
 
 import com.chamoddulanjana.fileuploadservice.service.CsvQueueService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@RestController
-@RequestMapping("api/v1/fileUpload")
+@Controller
 @CrossOrigin
 @RequiredArgsConstructor
 public class FileUploadController {
@@ -20,8 +20,7 @@ public class FileUploadController {
 
     @PostMapping
     public void getCsvFile(@RequestParam("file") MultipartFile file){
-        csvQueueService.uploadCsvToQueue(file);
-
+        csvQueueService.storeFileIntoStorage(file);
     }
 
 }
