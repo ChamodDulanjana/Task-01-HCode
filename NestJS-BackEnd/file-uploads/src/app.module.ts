@@ -6,7 +6,8 @@ import {GraphQLModule} from "@nestjs/graphql";
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { FileQueueModule } from './file-queue/file-queue.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {Vehicle} from "./file-queue/entities/vehicle.entity";
+import {Vehicle} from "./vehicle/entities/vehicle.entity";
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import {Vehicle} from "./file-queue/entities/vehicle.entity";
         autoSchemaFile: true,
       }),
       UploadModule,
-      FileQueueModule],
+      FileQueueModule,
+      VehicleModule],
   controllers: [AppController],
   providers: [AppService],
 })

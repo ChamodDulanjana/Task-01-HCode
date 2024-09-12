@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as xlsx from 'xlsx';
 import * as path from 'path';
 import { InjectRepository } from '@nestjs/typeorm';
-import {Vehicle} from "./entities/vehicle.entity";
+import {Vehicle} from "../vehicle/entities/vehicle.entity";
 import {Repository} from "typeorm";
 import * as csvParser from 'csv-parser';
 import {FileQueueService} from "./file-queue.service";   // CSV parsing library

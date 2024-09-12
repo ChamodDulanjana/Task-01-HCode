@@ -2,7 +2,7 @@ import {Injectable} from "@nestjs/common";
 import {InjectQueue} from "@nestjs/bull";
 import { Queue } from 'bull';
 import {InjectRepository} from "@nestjs/typeorm";
-import {Vehicle} from "./entities/vehicle.entity";
+import {Vehicle} from "../vehicle/entities/vehicle.entity";
 import {Repository} from "typeorm";
 
 
