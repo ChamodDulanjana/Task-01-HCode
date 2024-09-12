@@ -4,9 +4,12 @@ import { join } from 'path';
 import { parse } from 'csv-parse';
 import {FileUpload} from "graphql-upload-ts";
 import { mkdirSync, existsSync } from 'fs';
+import {FileQueueService} from "../file-queue/file-queue.service";
 
 @Injectable()
 export class UploadService {
+
+    constructor(private readonly fileQueueService: FileQueueService) {}
 
     uploadCsvFile(file: FileUpload): Promise<boolean> {
         const { createReadStream, filename } = file;
@@ -18,6 +21,7 @@ export class UploadService {
         }
 
         const savePath = join('D://save', filename);
+        this.fileQueueService.processFile(savePath);
 
         // Create a writable stream to the specified path
         const writeStream = createWriteStream(savePath);
@@ -30,5 +34,5 @@ export class UploadService {
                 .on('error', (error) => reject(false))
         );
     }
-    
+
 }

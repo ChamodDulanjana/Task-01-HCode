@@ -24,6 +24,9 @@ export class Vehicle{
     @Column({nullable:false})
     vin: string;
 
-    @Column({nullable:true})
+    @Column({nullable:false})
     manufactured_date: Date;
+
+    @Column({nullable:true})
+    age_of_vehicle: number;
 }
