@@ -78,6 +78,11 @@ query {
 
 
 
+mutation {
+  exportVehiclesByAge(age: 5)
+}
+
+
 
 
 
